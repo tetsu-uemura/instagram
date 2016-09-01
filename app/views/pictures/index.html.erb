@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+
+    <p><%= notice %></p>
+
+    <%= link_to "投稿", new_picture_path , class: 'btn btn-primary btn-block'  %>
+
+    <% (e = @pictures.reverse).each do |f| %>
+      <div class="row">
+
+        <p><%= f.comment %></p>
+        <br>
+        <%= link_to "編集", edit_picture_path(f.id), class: 'btn btn-primary btn-sm btn-success' %>
+        <%= link_to "削除", picture_path(f.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+      </div>
+    <% end %>
+
+    <br>
+
+
+  </div>
+</div>
